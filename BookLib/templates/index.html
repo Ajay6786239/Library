@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKLIB</title>
+    <link rel="stylesheet" href="{% static 'BookLib/style.css' %}">
+</head>
+<body>
+    <div class="head">
+        <h1>BookLib</h1>
+    </div>
+    <div class="tab1">
+        {% for book in books %}
+            <div class="tab">
+                <h2>{{ book.title }}</h2>
+                <h3>By {{ book.author }}</h3>
+                <p>{{ book.des }}</p>
+                <button class="delete" onclick="deleteBook(event, {{ book.id }})">Delete</button>
+            </div>
+        {% endfor %}
+
+    </div>
+    <div class="hi">
+        <p  id="plus">+</p>
+    </div>
+    <div class="black"></div>
+    <div class="pop">
+        <h1>Add Book</h1>
+        <form method="post" action="{% url 'index' %}">
+            {% csrf_token %}
+            <input name="title" placeholder="Enter the Book Name"><br>
+            <input name="author" placeholder="Enter the Author Name"><br>
+            <textarea name="des" placeholder="Enter the Book Description"></textarea>
+            <button type="submit" id="add">Add</button>
+            <button type="button" id="cancel">Cancel</button>
+        </form>
+        
+    </div>
+    <script src="{% static 'BookLib/script.js' %}"></script>
+</body>
+</html>

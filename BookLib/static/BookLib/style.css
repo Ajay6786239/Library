@@ -1,0 +1,183 @@
+/* Base styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Martian Mono", monospace;
+}
+
+.head {
+    background-color: blueviolet;
+    padding: 20px;
+    text-align: center;
+}
+
+.tab1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    transition: 0.9s;
+}
+
+.tab {
+    background-color: black;
+    color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow-wrap: break-word; /* Ensures long words break and wrap */
+    word-wrap: break-word; /* Compatibility for older browsers */
+    word-break: break-word; /* Forces long words to break and wrap */
+    hyphens: auto;
+    
+}
+
+.tab h2 {
+    text-decoration: underline;
+    color: blueviolet;
+}
+
+.tab button {
+    padding: 6px;
+    margin-top: 10px;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.black {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10; /* Ensure the black overlay is below the pop-up */
+    opacity: 0.6;
+    display: none;
+}
+.hi {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: blueviolet;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#plus {
+    font-size: 36px;
+    color: white;
+    margin: 0;
+}
+
+.pop {
+    z-index: 20; /* Ensure the pop-up is above the black overlay */
+    width: 90%;
+    max-width: 500px;
+    background-color: blueviolet;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pop-up */
+    display: none;
+}
+
+.pop input,
+.pop textarea {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: blueviolet;
+    color: black;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    outline:none;
+}
+
+.pop input::placeholder,
+.pop textarea::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.pop button {
+    padding: 8px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    width: 100px;
+    cursor: pointer;
+}
+.h1{
+    background-color: blueviolet;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .tab {
+        width: calc(100% - 40px);
+        margin: 10px;
+    }
+
+    .plus p {
+        font-size: 80px;
+        width: 80px;
+        height: 80px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .pop {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin: 10px;
+    }
+
+    .pop input,
+    .pop textarea {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .head {
+        font-size: 18px;
+    }
+
+    .tab {
+        width: calc(100% - 20px);
+        margin: 5px;
+    }
+
+   
+
+    .pop input,
+    .pop textarea {
+        font-size: 14px;
+    }
+
+    .pop button {
+        width: 80px;
+        font-size: 14px;
+    }
+}
